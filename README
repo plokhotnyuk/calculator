@@ -1,0 +1,17 @@
+Basic calculator
+
+Software installed required
+---------------------------
+JDK: 1.6.0 or newer
+Maven: 2.2.1 or newer
+
+Building & running benchmarks
+-----------------------------
+Install 3rd party dependencies to local maven repository using following script:
+repo/install.bat
+Use following command-line instructions for building:
+mvn -B clean install >out.txt
+Check executable specification reports in the following directory:
+target/yatspec-report
+Run calculator by following command:
+java -jar java-calculator-1.0-SNAPSHOT.jar 
