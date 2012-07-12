@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite failures="0" time="106.222" errors="0" skipped="1" tests="24" name="com.github.plokhotnyuk.calculator.CalculatorTest">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="c:\Programs\Java\1.7.0\jre\bin"/>
+    <property name="java.vm.version" value="21.0-b17"/>
+    <property name="user.country.format" value="UA"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="Service Pack 1"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="d:\Work\calculator-scala"/>
+    <property name="java.runtime.version" value="1.7.0-b147"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="c:\Programs\Java\1.7.0\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\OLEKSA~1\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 7"/>
+    <property name="classworlds.conf" value="c:/Programs/apache-maven/3.0.4/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1251"/>
+    <property name="java.library.path" value="c:\Programs\Java\1.7.0\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;c:\Users\Oleksandr Siman\bin;.;C:\Programs\Git\1.7.10\local\bin;C:\Programs\Git\1.7.10\mingw\bin;C:\Programs\Git\1.7.10\bin;c:\Program Files (x86)\Haskell\bin;c:\Program Files (x86)\Haskell Platform\2012.2.0.0\lib\extralibs\bin;c:\Program Files (x86)\Haskell Platform\2012.2.0.0\bin;c:\Windows\system32;c:\Windows;c:\Windows\System32\Wbem;c:\Windows\System32\WindowsPowerShell\v1.0\;c:\Programs\Java\1.7.0\bin;c:\Programs\Scala\2.9.2\bin;c:\Programs\Erlang\5.9.1\bin;C:\Programs\Git\1.7.10\cmd;c:\Programs\TortoiseGit\1.7.9.0\bin;c:\Programs\protoc\2.4.1;c:\Programs\apache-maven\3.0.4\bin;c:\Programs\rabbitmq_server_unix-2.8.2\sbin;c:\Users\Oleksandr Siman\AppData\Roaming\cabal\bin;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="51.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="6.1"/>
+    <property name="user.home" value="C:\Users\Oleksandr Siman"/>
+    <property name="user.timezone" value="Europe/Helsinki"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.7"/>
+    <property name="file.encoding" value="Cp1251"/>
+    <property name="user.name" value="Oleksandr Siman"/>
+    <property name="java.class.path" value="c:/Programs/apache-maven/3.0.4/boot/plexus-classworlds-2.4.jar"/>
+    <property name="java.vm.specification.version" value="1.7"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="c:\Programs\Java\1.7.0\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher test"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="user.language.format" value="uk"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.7.0"/>
+    <property name="java.ext.dirs" value="c:\Programs\Java\1.7.0\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="c:\Programs\Java\1.7.0\jre\lib\resources.jar;c:\Programs\Java\1.7.0\jre\lib\rt.jar;c:\Programs\Java\1.7.0\jre\lib\sunrsasign.jar;c:\Programs\Java\1.7.0\jre\lib\jsse.jar;c:\Programs\Java\1.7.0\jre\lib\jce.jar;c:\Programs\Java\1.7.0\jre\lib\charsets.jar;c:\Programs\Java\1.7.0\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="c:\Programs\apache-maven\3.0.4"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase time="7.521" classname="com.github.plokhotnyuk.calculator.CalculatorTest" name="userCanEnterNumbersByPressingDigitButtons"/>
+  <testcase time="10.073" classname="com.github.plokhotnyuk.calculator.CalculatorTest" name="userCanResetEnteredValuesAndOperation"/>
+  <testcase time="1.616" classname="com.github.plokhotnyuk.calculator.CalculatorTest" name="calculatorShouldSkipDuplicatedDots"/>
+  <testcase time="1.475" classname="com.github.plokhotnyuk.calculator.CalculatorTest" name="calculatorShouldRemoveLeadingZeros"/>
+  <testcase time="2.423" classname="com.github.plokhotnyuk.calculator.CalculatorTest" name="calculatorShouldReportErrorWhenDivideByZero"/>
+  <testcase time="4.256" classname="com.github.plokhotnyuk.calculator.CalculatorTest" name="calculatorShouldReportErrorInCaseOfOverflow"/>
+  <testcase time="5.879" classname="com.github.plokhotnyuk.calculator.CalculatorTest" name="calculatorShouldIndicate0InCaseOfUnderflow"/>
+  <testcase time="2.287" classname="com.github.plokhotnyuk.calculator.CalculatorTest" name="userCanEnterFloatNumbers"/>
+  <testcase time="2.44" classname="com.github.plokhotnyuk.calculator.CalculatorTest" name="userCanAddNumbers"/>
+  <testcase time="2.881" classname="com.github.plokhotnyuk.calculator.CalculatorTest" name="userCanSubtractNumbers"/>
+  <testcase time="2.899" classname="com.github.plokhotnyuk.calculator.CalculatorTest" name="userCanMultiplyNumbers"/>
+  <testcase time="2.92" classname="com.github.plokhotnyuk.calculator.CalculatorTest" name="userCanDivideNumbers"/>
+  <testcase time="1.464" classname="com.github.plokhotnyuk.calculator.CalculatorTest" name="calculatorShouldDoNothingWhenCalculateButtonPressedAfterEnteringTheFirstNumber"/>
+  <testcase time="0.033" classname="com.github.plokhotnyuk.calculator.CalculatorTest" name="calculatorShouldBeTitledAndDisplaysZeroWhenStarted"/>
+  <testcase time="15.114" classname="com.github.plokhotnyuk.calculator.CalculatorTest" name="userCanEnterNumbersUsingKeyboardOrNumericKeypad"/>
+  <testcase time="5.198" classname="com.github.plokhotnyuk.calculator.CalculatorTest" name="userCanCalculateWithPreviouslyCalculatedValue"/>
+  <testcase time="4.246" classname="com.github.plokhotnyuk.calculator.CalculatorTest" name="userCanCalculateWithPreviouslyEnteredValueAndOperation"/>
+  <testcase time="3.111" classname="com.github.plokhotnyuk.calculator.CalculatorTest" name="userCanCalculateWithPreviouslyEnteredValuesAndOperation"/>
+  <testcase time="3.111" classname="com.github.plokhotnyuk.calculator.CalculatorTest" name="userCanCalculatePreviousOperationByEnteringNewOperation">
+    <skipped/>
+  </testcase>
+  <testcase time="5.68" classname="com.github.plokhotnyuk.calculator.CalculatorTest" name="calculatorShouldRemoveRedundantDotWithFollowingZeros"/>
+  <testcase time="1.535" classname="com.github.plokhotnyuk.calculator.CalculatorTest" name="calculatorShouldNotRemoveLeadingZeroBeforeDot"/>
+  <testcase time="3.764" classname="com.github.plokhotnyuk.calculator.CalculatorTest" name="calculatorShouldNotRemoveZerosAfterDotWhenEntering"/>
+  <testcase time="11.33" classname="com.github.plokhotnyuk.calculator.CalculatorTest" name="calculatorShouldLimitLengthOfEnteredNumbersToSixteenDigits"/>
+  <testcase time="7.478" classname="com.github.plokhotnyuk.calculator.CalculatorTest" name="calculatorShouldCalculateWithPrecisionUpToSixteenDigits"/>
+</testsuite>
