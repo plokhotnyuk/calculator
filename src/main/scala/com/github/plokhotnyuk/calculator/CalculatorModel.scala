@@ -1,14 +1,14 @@
 package com.github.plokhotnyuk.calculator
 
-import java.math.BigDecimal
+import scala.math.BigDecimal
 import java.math.MathContext
 import CalculatorModel._
 import annotation.tailrec
 
 object CalculatorModel {
   private val Precision = 16
-  private val MaxValue = new BigDecimal("9999999999999999")
-  private val MinValue = new BigDecimal("0.0000000000000001")
+  private val MaxValue = BigDecimal("9999999999999999")
+  private val MinValue = BigDecimal("0.0000000000000001")
 }
 
 /**
@@ -19,6 +19,8 @@ class CalculatorModel {
   private var currValue: String = _
   private var operation: String = _
   private var isNewValue: Boolean = _
+
+  def getCurrValue: String = currValue
 
   reset()
 
@@ -42,13 +44,11 @@ class CalculatorModel {
   }
 
   private def appendDigit(digit: String) {
-    val num = if (isNewValue && digit != ".") "" else currValue
-    if (isDuplicatedDot(num, digit) || isLengthMaximal(num)) throw new IllegalArgumentException()
-    currValue = dropLeftZeros(num + digit)
+    val v = if (isNewValue && digit != ".") "" else currValue
+    if (isDuplicatedDot(v, digit) || isLengthMaximal(v)) throw new IllegalArgumentException()
+    currValue = dropLeftZeros(v + digit)
     isNewValue = false
   }
-
-  def getCurrValue: String = currValue
 
   private def setOperation(op: String) {
     operation = op
@@ -58,7 +58,7 @@ class CalculatorModel {
 
   private def completeOperation() {
     try {
-      currValue = dropRightZeros(round(evaluate()).toString)
+      currValue = dropRightZeros(round(evaluate()).toString())
     } catch {
       case ex: RuntimeException => currValue = "Error"
     }
@@ -66,21 +66,21 @@ class CalculatorModel {
   }
 
   private def evaluate(): BigDecimal = {
-    val x = new BigDecimal(prevValue)
-    val y = new BigDecimal(currValue)
-    operation.charAt(0) match {
-      case '+' => x.add(y)
-      case '-' => x.subtract(y)
-      case '*' => x.multiply(y)
-      case '/' => x.divide(y, new MathContext(Precision))
+    val x = BigDecimal(prevValue)
+    val y = BigDecimal(currValue)
+    operation match {
+      case "+" => x + y
+      case "-" => x - y
+      case "*" => x * y
+      case "/" => x / y
       case _ => y
     }
   }
 
-  private def round(value: BigDecimal): BigDecimal = {
-    val roundedValue = value.round(new MathContext(Precision))
-    if (roundedValue.abs().compareTo(MaxValue) > 0) throw new IllegalArgumentException()
-    if (roundedValue.abs().compareTo(MinValue) < 0) BigDecimal.ZERO else roundedValue
+  private def round(v: BigDecimal): BigDecimal = v.abs match {
+    case va if (va > MaxValue) => throw new IllegalArgumentException()
+    case va if (va < MinValue) => BigDecimal(0)
+    case _ => v.round(new MathContext(Precision))
   }
 
   private def isLengthMaximal(v: String): Boolean = v.replace(".", "").length == Precision
