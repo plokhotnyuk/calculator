@@ -20,9 +20,9 @@ class CalculatorModel {
   private var operation: String = _
   private var isNewValue: Boolean = _
 
-  def getCurrValue: String = currValue
-
   reset()
+
+  def getCurrValue: String = currValue
 
   /**
    * Process pressing of calculator button.
