@@ -1,6 +1,11 @@
 package com.github.plokhotnyuk.calculator
 
 class CalculatorSpec extends BaseSpec {
+  "Calculator should be titled and displays 0 when started" in {
+    Calculator titled "Calculator"
+    Display indicates "0"
+  }
+
   "User can enter numbers by pressing digit buttons" in {
     User clicks "1"
     Display indicates "1"
@@ -108,11 +113,6 @@ class CalculatorSpec extends BaseSpec {
     User clicks "1+1C"
     Display indicates "0"
     User clicks "1+1=C"
-    Display indicates "0"
-  }
-
-  "Calculator should be titled and displays 0 when started" in {
-    Calculator titled "Calculator"
     Display indicates "0"
   }
 
