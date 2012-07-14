@@ -11,6 +11,12 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <repositories>
+        <repository>
+            <id>calculator-repo</id>
+            <url>https://github.com/plokhotnyuk/calculator/raw/master/repo</url>
+        </repository>
+    </repositories>
     <dependencies>
         <dependency>
             <groupId>org.scala-lang</groupId>

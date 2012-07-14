@@ -7,9 +7,7 @@ Maven: 3.0.0 or newer
 
 Building & running benchmarks
 -----------------------------
-Install 3rd party dependencies to local maven repository using following script:
-repo/install.bat
 Use following command-line instructions for building:
 mvn -B clean install >out.txt
 Run calculator by following command:
-java -jar scala-calculator-1.0-SNAPSHOT.jar
+java -jar scala-calculator-1.0-SNAPSHOT-jar-with-dependencies.jar
