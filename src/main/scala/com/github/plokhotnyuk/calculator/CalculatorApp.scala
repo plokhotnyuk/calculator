@@ -6,22 +6,17 @@ import java.awt._
 import java.awt.event.ActionEvent
 import java.awt.event.KeyEvent
 import CalculatorApp._
+
 //remove if not needed
-import scala.collection.JavaConversions._
+
 
 object CalculatorApp {
-
-  private val DEFAULT_FONT_SIZE = 14
-
-  private val DEFAULT_FONT = new Font("Verdana", Font.BOLD, DEFAULT_FONT_SIZE)
-
-  private val PRESS_TIME = 100
-
-  private val COLUMN_NUMBER = 4
-
-  private val CALCULATOR_NAME = "Calculator"
-
-  private val DISPLAY_NAME = "Display"
+  private val DefaultFontSize = 14
+  private val DefaultFont = new Font("Verdana", Font.BOLD, DefaultFontSize)
+  private val PressTime = 100
+  private val ColumnNumber = 4
+  private val CalculatorName = "Calculator"
+  private val DisplayName = "Display"
 
   /**
    * Launch the calculator application.
@@ -33,16 +28,9 @@ object CalculatorApp {
   }
 
   private def registerKeyEventDispatcher(button: JButton) {
-    KeyboardFocusManager.getCurrentKeyboardFocusManager
-      .addKeyEventDispatcher(new KeyEventDispatcher() {
-
-      /**
-       {@inheritDoc}
-       */
+    KeyboardFocusManager.getCurrentKeyboardFocusManager.addKeyEventDispatcher(new KeyEventDispatcher() {
       override def dispatchKeyEvent(ev: KeyEvent): Boolean = {
-        if (ev.getID == KeyEvent.KEY_TYPED && String.valueOf(ev.getKeyChar) == button.getName) {
-          button.doClick(PRESS_TIME)
-        }
+        if (ev.getID == KeyEvent.KEY_TYPED && String.valueOf(ev.getKeyChar) == button.getName) button.doClick(PressTime)
         false
       }
     })
@@ -52,78 +40,44 @@ object CalculatorApp {
 /**
  * The calculator application that creates and displays the calculator window.
  */
-class CalculatorApp private () {
-
-  private var calculator: CalculatorModel = new CalculatorModel()
-
-  private var display: JTextField = new JTextField() {
-
-    setName(DISPLAY_NAME)
-
+class CalculatorApp private() {
+  private val calculator = new CalculatorModel()
+  private val display = new JTextField() {
+    setName(DisplayName)
     setText(calculator.getCurrValue)
-
     setHorizontalAlignment(SwingConstants.RIGHT)
-
-    setFont(DEFAULT_FONT)
-
+    setFont(DefaultFont)
     setEditable(false)
   }
 
   new JFrame() {
-
-    setName(CALCULATOR_NAME)
-
-    setTitle(CALCULATOR_NAME)
-
+    setName(CalculatorName)
+    setTitle(CalculatorName)
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)
-
     setContentPane(new CalculatorPanel() {
-
       setBorder(new EmptyBorder(2, 2, 2, 2))
-
-      atNewLineWithColumnSpan(display, COLUMN_NUMBER)
-
-      atNewLine(button("C")).beside(button("/")).beside(button("*"))
-        .beside(button("-"))
-
-      atNewLine(button("7")).beside(button("8")).beside(button("9"))
-        .besideWithRowSpan(button("+"), 2)
-
+      atNewLineWithColumnSpan(display, ColumnNumber)
+      atNewLine(button("C")).beside(button("/")).beside(button("*")).beside(button("-"))
+      atNewLine(button("7")).beside(button("8")).beside(button("9")).besideWithRowSpan(button("+"), 2)
       atNewLine(button("4")).beside(button("5")).beside(button("6"))
-
-      atNewLine(button("1")).beside(button("2")).beside(button("3"))
-        .besideWithRowSpan(button("="), 2)
-
+      atNewLine(button("1")).beside(button("2")).beside(button("3")).besideWithRowSpan(button("="), 2)
       atNewLineWithColumnSpan(button("0"), 2).beside(button("."))
     })
-
     setResizable(false)
-
     pack()
-  }
-    .setVisible(true)
+  }.setVisible(true)
 
-  private def button(name: String): JButton = {
+  private def button(name: String): JButton =
     new JButton() {
-
       setName(name)
-
       setAction(calculatorAction(name))
-
       setFocusable(false)
-
-      setFont(DEFAULT_FONT)
-
+      setFont(DefaultFont)
       registerKeyEventDispatcher(this)
     }
-  }
 
-  private def calculatorAction(name: String): AbstractAction = {
+  private def calculatorAction(name: String): AbstractAction =
     new AbstractAction(name) {
-
-      /**
-       {@inheritDoc}
-       */
       override def actionPerformed(event: ActionEvent) {
         try {
           calculator.pressButton(name)
@@ -133,5 +87,4 @@ class CalculatorApp private () {
         }
       }
     }
-  }
 }
