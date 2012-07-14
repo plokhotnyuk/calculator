@@ -8,17 +8,17 @@
  ||(_________(  (_______________||((_)
  ||  |        \___/             ||  |
  ||  |                          ||  |
- ||  |    Basic calculator      ||  |
+ ||  |    BASIC CALCULATOR      ||  |
  ||  |                          ||  |
-
-Features are described in executable specification:
-https://github.com/plokhotnyuk/calculator/blob/master/src/test/scala/com/github/plokhotnyuk/calculator/CalculatorSpec.scala
 
 Inspired by end-to-end approach from amazing book:
 http://www.growing-object-oriented-software.com/
 
 Initially developed on Java than converted to Scala:
 https://github.com/plokhotnyuk/calculator/tree/fee1b741aa74d659b8e30ad66d26d9ca6a2f6bc5
+
+Features are described in executable specification:
+https://github.com/plokhotnyuk/calculator/blob/master/src/test/scala/com/github/plokhotnyuk/calculator/CalculatorSpec.scala
 
 Software installed required
 ---------------------------
