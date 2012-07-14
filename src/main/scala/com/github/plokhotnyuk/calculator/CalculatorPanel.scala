@@ -3,9 +3,6 @@ package com.github.plokhotnyuk.calculator
 import javax.swing._
 import java.awt._
 
-//remove if not needed
-
-
 /**
  * A panel for calculator that allow easy place display and buttons in a grid layout.
  */
@@ -59,13 +56,12 @@ class CalculatorPanel extends JPanel {
     this
   }
 
-  private def constraints(width: Int, height: Int): GridBagConstraints =
-    new GridBagConstraints() {
-      gridx = column
-      gridy = row
-      gridwidth = width
-      gridheight = height
-      insets = new Insets(2, 2, 2, 2)
-      fill = GridBagConstraints.BOTH
-    }
+  private def constraints(width: Int, height: Int): GridBagConstraints = new GridBagConstraints() {
+    gridx = column
+    gridy = row
+    gridwidth = width
+    gridheight = height
+    insets = new Insets(2, 2, 2, 2)
+    fill = GridBagConstraints.BOTH
+  }
 }

@@ -3,7 +3,7 @@ Basic calculator
 Software installed required
 ---------------------------
 JDK: 1.6.0 or newer
-Maven: 2.2.1 or newer
+Maven: 3.0.0 or newer
 
 Building & running benchmarks
 -----------------------------

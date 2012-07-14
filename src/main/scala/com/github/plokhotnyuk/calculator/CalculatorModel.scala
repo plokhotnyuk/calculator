@@ -5,9 +5,6 @@ import java.math.MathContext
 import CalculatorModel._
 import annotation.tailrec
 
-//remove if not needed
-
-
 object CalculatorModel {
   private val Precision = 16
   private val MaxValue = new BigDecimal("9999999999999999")

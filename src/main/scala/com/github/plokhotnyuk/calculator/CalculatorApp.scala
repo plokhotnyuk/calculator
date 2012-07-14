@@ -7,9 +7,6 @@ import java.awt.event.ActionEvent
 import java.awt.event.KeyEvent
 import CalculatorApp._
 
-//remove if not needed
-
-
 object CalculatorApp {
   private val DefaultFontSize = 14
   private val DefaultFont = new Font("Verdana", Font.BOLD, DefaultFontSize)
@@ -67,24 +64,22 @@ class CalculatorApp private() {
     pack()
   }.setVisible(true)
 
-  private def button(name: String): JButton =
-    new JButton() {
-      setName(name)
-      setAction(calculatorAction(name))
-      setFocusable(false)
-      setFont(DefaultFont)
-      registerKeyEventDispatcher(this)
-    }
+  private def button(name: String): JButton = new JButton() {
+    setName(name)
+    setAction(calculatorAction(name))
+    setFocusable(false)
+    setFont(DefaultFont)
+    registerKeyEventDispatcher(this)
+  }
 
-  private def calculatorAction(name: String): AbstractAction =
-    new AbstractAction(name) {
-      override def actionPerformed(event: ActionEvent) {
-        try {
-          calculator.pressButton(name)
-          display.setText(calculator.getCurrValue)
-        } catch {
-          case ex: IllegalArgumentException => Toolkit.getDefaultToolkit.beep()
-        }
+  private def calculatorAction(name: String): AbstractAction = new AbstractAction(name) {
+    override def actionPerformed(event: ActionEvent) {
+      try {
+        calculator.pressButton(name)
+        display.setText(calculator.getCurrValue)
+      } catch {
+        case ex: IllegalArgumentException => Toolkit.getDefaultToolkit.beep()
       }
     }
+  }
 }

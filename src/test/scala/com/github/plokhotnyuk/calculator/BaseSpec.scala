@@ -33,16 +33,12 @@ abstract class BaseSpec extends SpecificationWithJUnit with BeforeExample with A
     private val automaton = new RoboticAutomaton
 
     def clicks(buttons: String): Result = {
-      for (button <- buttons) {
-        buttonDriver(button.toString).click()
-      }
+      for (button <- buttons) buttonDriver(button.toString).click()
       success
     }
 
     def types(keys: String): Result = {
-      for (key <- keys) {
-        automaton.typeCharacter(key)
-      }
+      for (key <- keys) automaton.typeCharacter(key)
       success
     }
   }
