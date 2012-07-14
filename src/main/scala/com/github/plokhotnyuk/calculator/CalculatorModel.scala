@@ -15,9 +15,9 @@ object CalculatorModel {
  * A model of calculator that allow entering values and calculate simple arithmetic functions.
  */
 class CalculatorModel {
-  var prevValue: String = _
-  var currValue: String = _
-  var operation: String = _
+  private var prevValue: String = _
+  private var currValue: String = _
+  private var operation: String = _
   private var isNewValue: Boolean = _
 
   reset()
@@ -31,8 +31,8 @@ class CalculatorModel {
     name match {
       case "C" => reset()
       case "=" => completeOperation()
-      case n if "+-*/".contains(n) => setOperation(n)
-      case n => appendDigit(n)
+      case "+" | "-" | "*" | "/" => setOperation(name)
+      case _ => appendDigit(name)
     }
   }
 
@@ -83,17 +83,15 @@ class CalculatorModel {
     if (roundedValue.abs().compareTo(MinValue) < 0) BigDecimal.ZERO else roundedValue
   }
 
-  private def isLengthMaximal(num: String): Boolean = num.replace(".", "").length == Precision
+  private def isLengthMaximal(v: String): Boolean = v.replace(".", "").length == Precision
 
-  private def isDuplicatedDot(num: String, digit: String): Boolean = num.contains(".") && digit == "."
-
-  @tailrec
-  private def dropRightZeros(num: String): String =
-    if (num.contains(".") && (num.endsWith("0") || num.endsWith("."))) dropRightZeros(num.substring(0, num.length - 1))
-    else num
+  private def isDuplicatedDot(v: String, digit: String): Boolean = v.contains(".") && digit == "."
 
   @tailrec
-  private def dropLeftZeros(num: String): String =
-    if (num.startsWith("0") && num.length > 1 && !num.startsWith("0.")) dropLeftZeros(num.substring(1))
-    else num
+  private def dropRightZeros(v: String): String =
+    if (v.contains(".") && (v.endsWith("0") || v.endsWith("."))) dropRightZeros(v.dropRight(1)) else v
+
+  @tailrec
+  private def dropLeftZeros(v: String): String =
+    if (v.startsWith("0") && v.length > 1 && !v.startsWith("0.")) dropLeftZeros(v.drop(1)) else v
 }
