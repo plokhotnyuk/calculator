@@ -7,10 +7,10 @@ import java.awt._
  * A panel for calculator that allow easy place display and buttons in a grid layout.
  */
 class CalculatorPanel extends JPanel {
-  private var row: Int = _
+  private var row: Int = 0
   private var column: Int = -1
 
-  setLayout(new GridBagLayout())
+  setLayout(new GridBagLayout)
 
   /**
    * Add component at the left side, from a new line.

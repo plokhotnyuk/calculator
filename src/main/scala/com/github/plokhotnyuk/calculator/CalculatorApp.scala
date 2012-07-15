@@ -11,7 +11,6 @@ object CalculatorApp {
   private val DefaultFontSize = 14
   private val DefaultFont = new Font("Verdana", Font.BOLD, DefaultFontSize)
   private val PressTime = 100
-  private val ColumnNumber = 4
   private val CalculatorName = "Calculator"
   private val DisplayName = "Display"
 
@@ -22,15 +21,6 @@ object CalculatorApp {
    */
   def main(args: Array[String]) {
     new CalculatorApp()
-  }
-
-  private def registerKeyEventDispatcher(button: JButton) {
-    KeyboardFocusManager.getCurrentKeyboardFocusManager.addKeyEventDispatcher(new KeyEventDispatcher() {
-      override def dispatchKeyEvent(ev: KeyEvent): Boolean = {
-        if (ev.getID == KeyEvent.KEY_TYPED && String.valueOf(ev.getKeyChar) == button.getName) button.doClick(PressTime)
-        false
-      }
-    })
   }
 }
 
@@ -53,7 +43,7 @@ class CalculatorApp private() {
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)
     setContentPane(new CalculatorPanel() {
       setBorder(new EmptyBorder(2, 2, 2, 2))
-      atNewLineWithColumnSpan(display, ColumnNumber)
+      atNewLineWithColumnSpan(display, 4)
       atNewLine(button("C")).beside(button("/")).beside(button("*")).beside(button("-"))
       atNewLine(button("7")).beside(button("8")).beside(button("9")).besideWithRowSpan(button("+"), 2)
       atNewLine(button("4")).beside(button("5")).beside(button("6"))
@@ -70,6 +60,15 @@ class CalculatorApp private() {
     setFocusable(false)
     setFont(DefaultFont)
     registerKeyEventDispatcher(this)
+  }
+
+  private def registerKeyEventDispatcher(button: JButton) {
+    KeyboardFocusManager.getCurrentKeyboardFocusManager.addKeyEventDispatcher(new KeyEventDispatcher() {
+      override def dispatchKeyEvent(ev: KeyEvent): Boolean = {
+        if (ev.getID == KeyEvent.KEY_TYPED && String.valueOf(ev.getKeyChar) == button.getName) button.doClick(PressTime)
+        false
+      }
+    })
   }
 
   private def calculatorAction(name: String): AbstractAction = new AbstractAction(name) {
