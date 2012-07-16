@@ -16,13 +16,12 @@ import org.specs2.execute.Result
 abstract class BaseSpec extends SpecificationWithJUnit with BeforeExample with AfterExample {
   private val TimeoutMillis = 1000
   private val PollDelayMillis = 100
-  private var calculatorDriver: JFrameDriver = _
+  private lazy val calculatorDriver = new JFrameDriver(new GesturePerformer,
+    JFrameDriver.topLevelFrame(named("Calculator"), showingOnScreen),
+    new AWTEventQueueProber(TimeoutMillis, PollDelayMillis))
 
   override def before {
     CalculatorApp.main(null)
-    calculatorDriver = new JFrameDriver(new GesturePerformer,
-      JFrameDriver.topLevelFrame(named("Calculator"), showingOnScreen),
-      new AWTEventQueueProber(TimeoutMillis, PollDelayMillis))
   }
 
   override def after {
