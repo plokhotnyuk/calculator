@@ -6,10 +6,21 @@ import java.awt._
 import java.awt.event.ActionEvent
 import java.awt.event.KeyEvent
 
+object CalculatorApp {
+  /**
+   * Launch the calculator application.
+   *
+   * @param args the command line arguments that are ignored
+   */
+  def main(args: Array[String]) {
+    new CalculatorApp()
+  }
+}
+
 /**
  * The calculator application that creates and displays the calculator window.
  */
-object CalculatorApp extends App {
+class CalculatorApp private() {
   private val font = new Font("Verdana", Font.BOLD, 14)
   private val calculator = new CalculatorModel()
   private val display = new JTextField() {
@@ -48,7 +59,7 @@ object CalculatorApp extends App {
   private def registerKeyEventDispatcher(button: JButton) {
     KeyboardFocusManager.getCurrentKeyboardFocusManager.addKeyEventDispatcher(new KeyEventDispatcher() {
       override def dispatchKeyEvent(ev: KeyEvent): Boolean = {
-        if (ev.getID == KeyEvent.KEY_TYPED && String.valueOf(ev.getKeyChar) == button.getName) button.doClick()
+        if (ev.getID == KeyEvent.KEY_TYPED && ev.getKeyChar.toString == button.getName) button.doClick()
         false
       }
     })

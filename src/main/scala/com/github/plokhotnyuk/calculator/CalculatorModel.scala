@@ -2,19 +2,15 @@ package com.github.plokhotnyuk.calculator
 
 import scala.math.BigDecimal
 import java.math.MathContext
-import CalculatorModel._
 import annotation.tailrec
-
-object CalculatorModel {
-  private val Precision = 16
-  private val MaxValue = BigDecimal("9999999999999999")
-  private val MinValue = BigDecimal("0.0000000000000001")
-}
 
 /**
  * A model of calculator that allow entering values and calculate simple arithmetic functions.
  */
 class CalculatorModel {
+  private val precision = 16
+  private val maxValue = BigDecimal("9999999999999999")
+  private val minValue = BigDecimal("0.0000000000000001")
   private var prevValue: String = _
   private var currValue: String = _
   private var operation: String = _
@@ -78,12 +74,12 @@ class CalculatorModel {
   }
 
   private def round(v: BigDecimal): BigDecimal = v.abs match {
-    case va if (va > MaxValue) => throw new IllegalArgumentException()
-    case va if (va < MinValue) => BigDecimal(0)
-    case _ => v.round(new MathContext(Precision))
+    case va if (va > maxValue) => throw new IllegalArgumentException()
+    case va if (va < minValue) => BigDecimal(0)
+    case _ => v.round(new MathContext(precision))
   }
 
-  private def isLengthMaximal(v: String): Boolean = v.replace(".", "").length == Precision
+  private def isLengthMaximal(v: String): Boolean = v.replace(".", "").length == precision
 
   private def isDuplicatedDot(v: String, digit: String): Boolean = v.contains(".") && digit == "."
 
