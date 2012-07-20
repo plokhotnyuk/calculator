@@ -5,41 +5,24 @@ import javax.swing.border.EmptyBorder
 import java.awt._
 import java.awt.event.ActionEvent
 import java.awt.event.KeyEvent
-import CalculatorApp._
-
-object CalculatorApp {
-  private val DefaultFontSize = 14
-  private val DefaultFont = new Font("Verdana", Font.BOLD, DefaultFontSize)
-  private val PressTime = 100
-  private val CalculatorName = "Calculator"
-  private val DisplayName = "Display"
-
-  /**
-   * Launch the calculator application.
-   *
-   * @param args the command line arguments that are ignored
-   */
-  def main(args: Array[String]) {
-    new CalculatorApp()
-  }
-}
 
 /**
  * The calculator application that creates and displays the calculator window.
  */
-class CalculatorApp private() {
+object CalculatorApp extends App {
+  private val font = new Font("Verdana", Font.BOLD, 14)
   private val calculator = new CalculatorModel()
   private val display = new JTextField() {
-    setName(DisplayName)
+    setName("Display")
     setText(calculator.getCurrValue)
     setHorizontalAlignment(SwingConstants.RIGHT)
-    setFont(DefaultFont)
+    setFont(font)
     setEditable(false)
   }
 
   new JFrame() {
-    setName(CalculatorName)
-    setTitle(CalculatorName)
+    setName("Calculator")
+    setTitle("Calculator")
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)
     setContentPane(new CalculatorPanel() {
       setBorder(new EmptyBorder(2, 2, 2, 2))
@@ -58,14 +41,14 @@ class CalculatorApp private() {
     setName(name)
     setAction(calculatorAction(name))
     setFocusable(false)
-    setFont(DefaultFont)
+    setFont(font)
     registerKeyEventDispatcher(this)
   }
 
   private def registerKeyEventDispatcher(button: JButton) {
     KeyboardFocusManager.getCurrentKeyboardFocusManager.addKeyEventDispatcher(new KeyEventDispatcher() {
       override def dispatchKeyEvent(ev: KeyEvent): Boolean = {
-        if (ev.getID == KeyEvent.KEY_TYPED && String.valueOf(ev.getKeyChar) == button.getName) button.doClick(PressTime)
+        if (ev.getID == KeyEvent.KEY_TYPED && String.valueOf(ev.getKeyChar) == button.getName) button.doClick()
         false
       }
     })
