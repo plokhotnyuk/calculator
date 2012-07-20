@@ -2,9 +2,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.plokhotnyuk.calculator</groupId>
-    <artifactId>scala-calculator</artifactId>
+    <artifactId>calculator</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Scala Calculator</name>
+    <name>Calculator</name>
     <prerequisites>
         <maven>3.0</maven>
     </prerequisites>
@@ -104,16 +104,22 @@
                         <charset>${project.build.sourceEncoding}</charset>
                         <jvmArgs>
                             <jvmArg>-server</jvmArg>
-                            <jvmArg>-Xms1g</jvmArg>
-                            <jvmArg>-Xmx1g</jvmArg>
+                            <jvmArg>-Xms512m</jvmArg>
+                            <jvmArg>-Xmx512m</jvmArg>
                             <jvmArg>-Xss1m</jvmArg>
                             <jvmArg>-XX:+TieredCompilation</jvmArg>
                         </jvmArgs>
                     </configuration>
                     <executions>
                         <execution>
+                            <id>compile</id>
                             <goals>
                                 <goal>compile</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>testCompile</id>
+                            <goals>
                                 <goal>testCompile</goal>
                             </goals>
                         </execution>
