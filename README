@@ -22,12 +22,13 @@ https://github.com/plokhotnyuk/calculator/blob/master/src/test/scala/com/github/
 
 Software installed required
 ---------------------------
-JDK: 1.6.0 or newer
-Maven: 3.0.0 or newer
+JDK: 1.6.0_x or newer
+Maven: 3.0.x (or sbt: 0.11.3)
 
 Building & running application
 ------------------------------
 Use following command-line instructions for building:
-mvn -B clean install >out.txt
+mvn -B clean install >out.txt (or sbt clean test one-jar >out.txt)
+
 Run calculator by following command:
 java -jar scala-calculator-1.0-SNAPSHOT-jar-with-dependencies.jar

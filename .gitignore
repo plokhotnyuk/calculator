@@ -1,5 +1,5 @@
-# Compile
-target
+# Maven or sbt
+target/
 
 # Idea
 .idea/

@@ -14,6 +14,7 @@
     <repositories>
         <repository>
             <id>calculator-repo</id>
+            <name>Calculator Repo</name>
             <url>https://github.com/plokhotnyuk/calculator/raw/master/repo</url>
         </repository>
     </repositories>

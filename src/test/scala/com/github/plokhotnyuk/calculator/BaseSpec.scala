@@ -20,6 +20,8 @@ abstract class BaseSpec extends SpecificationWithJUnit with BeforeExample with A
     JFrameDriver.topLevelFrame(named("Calculator"), showingOnScreen),
     new AWTEventQueueProber(TimeoutMillis, PollDelayMillis))
 
+  sequential
+
   override def before {
     CalculatorApp.main(null)
   }
