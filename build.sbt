@@ -10,7 +10,7 @@ libraryDependencies ++= Seq(
   "com.googlecode.windowlicker" % "windowlicker-core" % "268" % "test",
   "com.googlecode.windowlicker" % "windowlicker-swing" % "268" % "test",
   "org.objenesis" % "objenesis" % "1.0" % "test",
-  "org.specs2" %% "specs2" % "1.11" % "test",
+  "org.specs2" %% "specs2" % "1.12" % "test",
   "org.hamcrest" % "hamcrest-core" % "1.3" % "test",
   "org.hamcrest" % "hamcrest-library" % "1.3" % "test",
   "junit" % "junit-dep" % "4.10" % "test"
