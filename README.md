@@ -1,4 +1,4 @@
-![Build Status](https://secure.travis-ci.org/plokhotnyuk/calculator.png)](http://travis-ci.org/plokhotnyuk/calculator)
+[![Build Status](https://secure.travis-ci.org/plokhotnyuk/calculator.png)](http://travis-ci.org/plokhotnyuk/calculator)
 
 ```sh
   ___                            ___
@@ -27,13 +27,13 @@ https://github.com/plokhotnyuk/calculator/blob/master/src/test/scala/com/github/
 ## Software installed required
 
 - JDK: 1.6.0_x or newer
-- Maven: 3.0.x (or sbt: 0.11.3)
+- Maven: 3.0.4 (or sbt: 0.12.0)
 
 ## Building & running application
 
 Use following command-line instructions for building:
 ```sh
-mvn -B clean install >out.txt (or sbt clean test one-jar >out.txt)
+mvn -B clean install >out.txt
 ```
 Run calculator by following command:
 ```sh
