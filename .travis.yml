@@ -2,7 +2,6 @@ language: scala
 scala:
   - 2.11.8
 jdk:
-  - openjdk8
   - oraclejdk8
 install: /bin/true # always succeeds
 before_script:
