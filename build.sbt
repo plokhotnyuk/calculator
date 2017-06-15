@@ -2,7 +2,7 @@ name := "calculator"
 
 version := "1.0-SNAPSHOT"
 
-scalaVersion := "2.9.2"
+scalaVersion := "2.11.8"
 
 resolvers += "Calculator Repo" at "https://github.com/plokhotnyuk/calculator/raw/master/repo"
 
