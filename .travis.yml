@@ -1,9 +1,9 @@
 language: scala
 scala:
-  - 2.9.2
+  - 2.11.8
 jdk:
-  - openjdk7
-  - oraclejdk7
+  - openjdk8
+  - oraclejdk8
 install: /bin/true # always succeeds
 before_script:
   - "export DISPLAY=:99.0"
