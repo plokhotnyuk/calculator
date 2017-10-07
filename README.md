@@ -24,18 +24,18 @@ https://github.com/plokhotnyuk/calculator/tree/fee1b741aa74d659b8e30ad66d26d9ca6
 Features are described as executable specification:
 https://github.com/plokhotnyuk/calculator/blob/master/src/test/scala/com/github/plokhotnyuk/calculator/CalculatorSpec.scala
 
-## Software installed required
-
-- JDK: 1.6.0_x or newer
-- Maven: 3.0.4 (or sbt: 0.12.0)
-
 ## Building & running application
 
 Use following command-line instructions for building:
 ```sh
-mvn -B clean install >out.txt
+sbt clean assembly
 ```
+BEWARE! End-to-end test over running Swing app will be started and possible you will be shocked by moving mouse pointer 
+that will press the app buttons in your desktop. And possible you will be double-shocked to see that the same tests are
+completes during Travis CI build, or in case of test failures to see cute explanation instead of stack traces.
+
 Run calculator by following command:
 ```sh
-java -jar scala-calculator-1.0-SNAPSHOT-jar-with-dependencies.jar
+java -jar calculator.jar
 ```
+Have a fun to read & lean!
