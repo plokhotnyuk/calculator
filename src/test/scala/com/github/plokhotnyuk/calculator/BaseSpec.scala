@@ -22,16 +22,12 @@ abstract class BaseSpec extends SpecificationWithJUnit with BeforeExample with A
 
   sequential
 
-  override def before {
-    CalculatorApp.main(null)
-  }
+  override def before: Unit = CalculatorApp.main(null)
 
-  override def after {
-    calculatorDriver.dispose()
-  }
+  override def after: Unit = calculatorDriver.dispose()
 
   object User {
-    private val automaton = new RoboticAutomaton
+    private lazy val automaton = new RoboticAutomaton
 
     def clicks(buttons: String): Result = {
       for (button <- buttons) buttonDriver(button.toString).click()

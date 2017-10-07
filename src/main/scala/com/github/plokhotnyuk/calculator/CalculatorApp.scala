@@ -12,15 +12,13 @@ object CalculatorApp {
    *
    * @param args the command line arguments that are ignored
    */
-  def main(args: Array[String]) {
-    new CalculatorApp()
-  }
+  def main(args: Array[String]): Unit = new CalculatorApp()
 }
 
 /**
  * The calculator application that creates and displays the calculator window.
  */
-class CalculatorApp private() {
+class CalculatorApp private {
   private val font = new Font("Verdana", Font.BOLD, 14)
   private val calculator = new CalculatorModel()
   private val display = new JTextField() {
@@ -31,7 +29,7 @@ class CalculatorApp private() {
     setEditable(false)
   }
 
-  new JFrame() {
+  new JFrame {
     setName("Calculator")
     setTitle("Calculator")
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)
@@ -56,23 +54,21 @@ class CalculatorApp private() {
     registerKeyEventDispatcher(this)
   }
 
-  private def registerKeyEventDispatcher(button: JButton) {
+  private def registerKeyEventDispatcher(button: JButton): Unit =
     KeyboardFocusManager.getCurrentKeyboardFocusManager.addKeyEventDispatcher(new KeyEventDispatcher() {
       override def dispatchKeyEvent(ev: KeyEvent): Boolean = {
         if (ev.getID == KeyEvent.KEY_TYPED && ev.getKeyChar.toString == button.getName) button.doClick()
         false
       }
     })
-  }
 
   private def calculatorAction(name: String): AbstractAction = new AbstractAction(name) {
-    override def actionPerformed(event: ActionEvent) {
+    override def actionPerformed(event: ActionEvent): Unit =
       try {
         calculator.pressButton(name)
         display.setText(calculator.getCurrValue)
       } catch {
         case ex: IllegalArgumentException => Toolkit.getDefaultToolkit.beep()
       }
-    }
   }
 }

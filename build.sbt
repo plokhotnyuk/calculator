@@ -16,7 +16,16 @@ libraryDependencies ++= Seq(
   "junit" % "junit-dep" % "4.10" % "test"
 )
 
-scalacOptions in ThisBuild ++= Seq("-unchecked", "-deprecation", "-explaintypes") 
+scalacOptions ++= Seq(
+  "-encoding", "UTF-8",
+  "-feature",
+  "-unchecked",
+  "-deprecation",
+  "-Xlint",
+  "-Yno-adapted-args",
+  "-Ywarn-dead-code",
+  "-Xfuture"
+)
 
 parallelExecution in Test := false
 

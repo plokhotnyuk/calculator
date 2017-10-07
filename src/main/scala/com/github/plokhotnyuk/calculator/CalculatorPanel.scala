@@ -56,7 +56,7 @@ class CalculatorPanel extends JPanel {
     this
   }
 
-  private def constraints(width: Int, height: Int): GridBagConstraints = new GridBagConstraints() {
+  private def constraints(width: Int, height: Int): GridBagConstraints = new GridBagConstraints {
     gridx = column
     gridy = row
     gridwidth = width

@@ -25,34 +25,33 @@ class CalculatorModel {
    *
    * @param name the name of pressed button
    */
-  def pressButton(name: String) {
+  def pressButton(name: String): Unit =
     name match {
       case "C" => reset()
       case "=" => completeOperation()
       case "+" | "-" | "*" | "/" => setOperation(name)
       case _ => appendDigit(name)
     }
-  }
 
-  private def reset() {
+  private def reset(): Unit = {
     currValue = "0"
     setOperation("=")
   }
 
-  private def appendDigit(digit: String) {
+  private def appendDigit(digit: String): Unit = {
     val v = if (isNewValue && digit != ".") "" else currValue
     if (isDuplicatedDot(v, digit) || isLengthMaximal(v)) throw new IllegalArgumentException()
     currValue = dropLeftZeros(v + digit)
     isNewValue = false
   }
 
-  private def setOperation(op: String) {
+  private def setOperation(op: String): Unit = {
     operation = op
     prevValue = currValue
     isNewValue = true
   }
 
-  private def completeOperation() {
+  private def completeOperation(): Unit = {
     try {
       currValue = dropRightZeros(round(evaluate()).toString())
     } catch {
