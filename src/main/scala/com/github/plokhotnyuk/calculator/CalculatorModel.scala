@@ -40,7 +40,7 @@ class CalculatorModel {
 
   private def appendDigit(digit: String): Unit = {
     val v = if (isNewValue && digit != ".") "" else currValue
-    if (isDuplicatedDot(v, digit) || isLengthMaximal(v)) throw new IllegalArgumentException()
+    if (isDuplicatedDot(v, digit) || isLengthMaximal(v)) throw new IllegalArgumentException
     currValue = dropLeftZeros(v + digit)
     isNewValue = false
   }
@@ -53,7 +53,7 @@ class CalculatorModel {
 
   private def completeOperation(): Unit = {
     try {
-      currValue = dropRightZeros(round(evaluate()).toString())
+      currValue = dropRightZeros(round(evaluate()).toString)
     } catch {
       case ex: RuntimeException => currValue = "Error"
     }
@@ -73,8 +73,8 @@ class CalculatorModel {
   }
 
   private def round(v: BigDecimal): BigDecimal = v.abs match {
-    case va if (va > maxValue) => throw new IllegalArgumentException()
-    case va if (va < minValue) => BigDecimal(0)
+    case va if va > maxValue => throw new IllegalArgumentException
+    case va if va < minValue => BigDecimal(0)
     case _ => v.round(new MathContext(precision))
   }
 

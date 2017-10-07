@@ -36,6 +36,6 @@ completes during Travis CI build, or in case of test failures to see cute explan
 
 Run calculator by following command:
 ```sh
-java -jar calculator.jar
+java -jar target/scala-2.11/calculator.jar
 ```
 Have a fun to read & lean!

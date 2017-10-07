@@ -12,7 +12,7 @@ object CalculatorApp {
    *
    * @param args the command line arguments that are ignored
    */
-  def main(args: Array[String]): Unit = new CalculatorApp()
+  def main(args: Array[String]): Unit = new CalculatorApp
 }
 
 /**
@@ -20,8 +20,8 @@ object CalculatorApp {
  */
 class CalculatorApp private {
   private val font = new Font("Verdana", Font.BOLD, 14)
-  private val calculator = new CalculatorModel()
-  private val display = new JTextField() {
+  private val calculator = new CalculatorModel
+  private val display = new JTextField {
     setName("Display")
     setText(calculator.getCurrValue)
     setHorizontalAlignment(SwingConstants.RIGHT)
@@ -33,7 +33,7 @@ class CalculatorApp private {
     setName("Calculator")
     setTitle("Calculator")
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)
-    setContentPane(new CalculatorPanel() {
+    setContentPane(new CalculatorPanel {
       setBorder(new EmptyBorder(2, 2, 2, 2))
       atNewLineWithColumnSpan(display, 4)
       atNewLine(button("C")).beside(button("/")).beside(button("*")).beside(button("-"))
@@ -46,7 +46,7 @@ class CalculatorApp private {
     pack()
   }.setVisible(true)
 
-  private def button(name: String): JButton = new JButton() {
+  private def button(name: String): JButton = new JButton {
     setName(name)
     setAction(calculatorAction(name))
     setFocusable(false)
@@ -55,7 +55,7 @@ class CalculatorApp private {
   }
 
   private def registerKeyEventDispatcher(button: JButton): Unit =
-    KeyboardFocusManager.getCurrentKeyboardFocusManager.addKeyEventDispatcher(new KeyEventDispatcher() {
+    KeyboardFocusManager.getCurrentKeyboardFocusManager.addKeyEventDispatcher(new KeyEventDispatcher {
       override def dispatchKeyEvent(ev: KeyEvent): Boolean = {
         if (ev.getID == KeyEvent.KEY_TYPED && ev.getKeyChar.toString == button.getName) button.doClick()
         false
