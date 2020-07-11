@@ -52,10 +52,8 @@ class CalculatorModel {
   }
 
   private def completeOperation(): Unit = {
-    try {
-      currValue = dropRightZeros(round(evaluate()).toString)
-    } catch {
-      case ex: RuntimeException => currValue = "Error"
+    currValue = try dropRightZeros(round(evaluate()).toString) catch {
+      case _: RuntimeException => "Error"
     }
     isNewValue = true
   }

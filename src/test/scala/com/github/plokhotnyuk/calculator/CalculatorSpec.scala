@@ -1,7 +1,7 @@
 package com.github.plokhotnyuk.calculator
 
 class CalculatorSpec extends BaseSpec {
-  "User can enter numbers" in {
+  "User can enter numbers" - {
     "by pressing digit buttons" in {
       User clicks "1"
       Display indicates "1"
@@ -55,7 +55,7 @@ class CalculatorSpec extends BaseSpec {
       Display indicates "1.2"
     }
   }
-  "User can do basic arithmetic operations with entered numbers" in {
+  "User can do basic arithmetic operations with entered numbers" - {
     "adding" in {
       User clicks "2+5="
       Display indicates "7"
@@ -73,7 +73,7 @@ class CalculatorSpec extends BaseSpec {
       Display indicates "0.125"
     }
   }
-  "User can calculate complex statements with minimum effors" in {
+  "User can calculate complex statements with minimum effors" - {
     "using previously calculated value" in {
       User clicks "1+1="
       User clicks "/8="
@@ -89,13 +89,14 @@ class CalculatorSpec extends BaseSpec {
       User clicks "="
       Display indicates "3"
     }
+/* TODO: implemented this cute feature
     "by calculating previous operation when entering new operation" in {
-      skipped("because not implemented yet")
       User clicks "1+1+1="
       Display indicates "3"
     }
+*/
   }
-  "Calculator should have initial state" in {
+  "Calculator should have initial state" - {
     "on start should be titled and displays 0 when started" in {
       Calculator titled "Calculator"
       Display indicates "0"
@@ -115,7 +116,7 @@ class CalculatorSpec extends BaseSpec {
       Display indicates "1"
     }
   }
-  "Calculator should properly format numbers" in {
+  "Calculator should properly format numbers" - {
     "redundant dot with following zeros should be removed" in {
       User clicks "1.1+9.9="
       Display indicates "11"
@@ -141,7 +142,7 @@ class CalculatorSpec extends BaseSpec {
       Display indicates "0.10001"
     }
   }
-  "Calculator should properly behave on edge cases" in {
+  "Calculator should properly behave on edge cases" - {
     "by reporting error when divide by zero" in {
       User clicks "1/0="
       Display indicates "Error"

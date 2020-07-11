@@ -9,49 +9,38 @@ import com.objogate.wl.swing.gesture.GesturePerformer
 import javax.swing._
 import com.objogate.wl.swing.driver.ComponentDriver._
 import org.hamcrest.Matchers._
-import org.specs2.mutable.SpecificationWithJUnit
-import org.specs2.specification.{BeforeExample, AfterExample}
-import org.specs2.execute.Result
+import org.scalatest.BeforeAndAfterEach
+import org.scalatest.freespec.AnyFreeSpec
+import org.scalatest.matchers.should.Matchers
 
-abstract class BaseSpec extends SpecificationWithJUnit with BeforeExample with AfterExample {
-  private val TimeoutMillis = 1000
+abstract class BaseSpec extends AnyFreeSpec with Matchers with BeforeAndAfterEach {
+  private val TimeoutMillis = 5000
   private val PollDelayMillis = 100
   private lazy val calculatorDriver = new JFrameDriver(new GesturePerformer,
     JFrameDriver.topLevelFrame(named("Calculator"), showingOnScreen),
     new AWTEventQueueProber(TimeoutMillis, PollDelayMillis))
 
-  sequential
+  override def beforeEach(): Unit = {
+    CalculatorApp.main(null)
+    Thread.sleep(PollDelayMillis)
+  }
 
-  override def before: Unit = CalculatorApp.main(null)
-
-  override def after: Unit = calculatorDriver.dispose()
+  override def afterEach(): Unit = calculatorDriver.dispose()
 
   object User {
     private lazy val automaton = new RoboticAutomaton
 
-    def clicks(buttons: String): Result = {
-      for (button <- buttons) buttonDriver(button.toString).click()
-      success
-    }
+    def clicks(buttons: String): Unit = for (button <- buttons) buttonDriver(button.toString).click()
 
-    def types(keys: String): Result = {
-      for (key <- keys) automaton.typeCharacter(key)
-      success
-    }
+    def types(keys: String): Unit = for (key <- keys) automaton.typeCharacter(key)
   }
 
   object Calculator {
-    def titled(title: String): Result = {
-      calculatorDriver.hasTitle(title)
-      success
-    }
+    def titled(title: String): Unit = calculatorDriver.hasTitle(title)
   }
 
   object Display {
-    def indicates(title: String): Result = {
-      displayDriver.hasText(title)
-      success
-    }
+    def indicates(title: String): Unit = displayDriver.hasText(title)
   }
 
   private def displayDriver =

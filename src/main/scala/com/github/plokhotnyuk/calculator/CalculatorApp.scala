@@ -32,7 +32,7 @@ class CalculatorApp private {
   new JFrame {
     setName("Calculator")
     setTitle("Calculator")
-    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)
+    setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE)
     setContentPane(new CalculatorPanel {
       setBorder(new EmptyBorder(2, 2, 2, 2))
       atNewLineWithColumnSpan(display, 4)
@@ -68,7 +68,7 @@ class CalculatorApp private {
         calculator.pressButton(name)
         display.setText(calculator.getCurrValue)
       } catch {
-        case ex: IllegalArgumentException => Toolkit.getDefaultToolkit.beep()
+        case _: IllegalArgumentException => Toolkit.getDefaultToolkit.beep()
       }
   }
 }
