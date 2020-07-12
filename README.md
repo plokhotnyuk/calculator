@@ -38,4 +38,10 @@ Run calculator by following command:
 ```sh
 java -jar target/scala-2.11/calculator.jar
 ```
+
+To build the test coverage report use:
+```sh
+sbt clean coverage test coverageReport
+```
+
 Have a fun to read & lean!
