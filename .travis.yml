@@ -13,4 +13,4 @@ cache:
 before_cache:
   # Cleanup locks to avoid unnecessary cache updates
   - find $HOME/.sbt -name "*.lock" | xargs rm
-script: sbt test
+script: sbt coverage test coverageAggregate coveralls

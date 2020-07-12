@@ -1,4 +1,5 @@
 [![Build Status](https://secure.travis-ci.org/plokhotnyuk/calculator.png)](http://travis-ci.org/plokhotnyuk/calculator)
+[![Coverage Status](https://coveralls.io/repos/github/plokhotnyuk/calculator/badge.svg?branch=master)](https://coveralls.io/github/plokhotnyuk/calculator?branch=master)
 
 ```sh
   ___                            ___
@@ -15,7 +16,7 @@
  ||  |                          ||  |
 ```
 
-Inspired by end-to-end approach from the amazing book:
+Inspired by the end-to-end approach from the amazing book:
 http://www.growing-object-oriented-software.com/
 
 Initially developed in Java than converted to Scala:
@@ -26,17 +27,17 @@ https://github.com/plokhotnyuk/calculator/blob/master/src/test/scala/com/github/
 
 ## Building & running application
 
-Use following command-line instructions for building:
+Instructions for building are simple:
 ```sh
 sbt clean assembly
 ```
-BEWARE! End-to-end test over running Swing app will be started and possible you will be shocked by moving mouse pointer 
-that will press the app buttons in your desktop. And possible you will be double-shocked to see that the same tests are
-completes during Travis CI build, or in case of test failures to see cute explanation instead of stack traces.
+BEWARE! The end-to-end test over running Swing app will be started and possible you will be shocked by moving mouse 
+pointer that will press the app buttons on your desktop. And possible you will be double-shocked to see that the same 
+tests complete during Travis CI build or (in case of test failures) to read cute explanation instead of stack traces.
 
 Run calculator by following command:
 ```sh
-java -jar target/scala-2.11/calculator.jar
+java -jar target/scala-2.13/calculator.jar
 ```
 
 To build the test coverage report use:
