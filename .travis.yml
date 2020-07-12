@@ -5,4 +5,12 @@ jdk:
   - openjdk8
 services:
   - xvfb
+cache:
+  directories:
+    - $HOME/.cache/coursier
+    - $HOME/.ivy2/cache
+    - $HOME/.sbt
+before_cache:
+  # Cleanup locks to avoid unnecessary cache updates
+  - find $HOME/.sbt -name "*.lock" | xargs rm
 script: sbt test
