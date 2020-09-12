@@ -4,6 +4,8 @@ version := "1.0-SNAPSHOT"
 
 scalaVersion := "2.13.3"
 
+crossScalaVersions := Seq("2.13.3", "2.12.12", "2.11.12")
+
 resolvers += "Calculator Repo" at "https://github.com/plokhotnyuk/calculator/raw/master/repo"
 
 libraryDependencies ++= Seq(

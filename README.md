@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/plokhotnyuk/calculator.png)](http://travis-ci.org/plokhotnyuk/calculator)
+[![Build Status](https://travis-ci.com/plokhotnyuk/calculator.png)](http://travis-ci.com/plokhotnyuk/calculator)
 [![Coverage Status](https://coveralls.io/repos/github/plokhotnyuk/calculator/badge.svg?branch=master)](https://coveralls.io/github/plokhotnyuk/calculator?branch=master)
 
 ```sh
